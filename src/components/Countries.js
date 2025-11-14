@@ -10,7 +10,6 @@ const Countries = ({ API_ENDPOINT }) => {
             try {
                 const res = await fetch(API_ENDPOINT);
                 const data = await res.json();
-                console.log("data", data)
                 setCountries(data);
             } catch (error) {
                 console.error("Error fetching data:", error);
@@ -55,7 +54,7 @@ const Countries = ({ API_ENDPOINT }) => {
                 }}
             >
                 {filteredCountries?.map((country) => (
-                    <div key={country.common}>
+                    <div key={country.common} className="countryCard">
                         <CountryCard country={country} />
                     </div>
                 ))}
